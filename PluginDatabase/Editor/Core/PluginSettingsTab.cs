@@ -36,6 +36,7 @@ namespace PluginDatabaseNamespace
         public abstract string path { get; }
         public abstract string label { get; }
         public abstract SettingsScope scope { get; }
+        public bool dirty { get; set; }
 
         public SerializedObject serializedObject;
 
@@ -44,6 +45,9 @@ namespace PluginDatabaseNamespace
         protected virtual void OnEnable() { }
 
         protected virtual void OnDisable() { }
+
+        protected virtual void OnChanged() { }
+
 
         public virtual IEnumerable<string> GetSearchKeywords() { yield break; }
 
@@ -63,6 +67,12 @@ namespace PluginDatabaseNamespace
         public void Disable()
         {
             OnDisable();
+        }
+
+        public void Changed()
+        {
+            dirty = true;
+            OnChanged();
         }
     }
 }

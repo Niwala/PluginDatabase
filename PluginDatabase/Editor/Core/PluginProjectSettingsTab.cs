@@ -49,23 +49,29 @@ namespace PluginDatabaseNamespace
                     VisualElement editorRoot = editor.Create();
                     editorRoot.RegisterCallback((AttachToPanelEvent e) => editor.Enable());
                     editorRoot.RegisterCallback((DetachFromPanelEvent e) => editor.Disable());
+                    editorRoot.TrackSerializedObjectValue(serializedObject, (SerializedObject) =>
+                    {
+                        editor.Changed();
+                        PluginDatabase.OnProjectSettingsChanged?.Invoke();
+                    });
 
                     root.Add(editorRoot);
                     editorRoot.Bind(serializedObject);
 
-                    root.RegisterCallback((DetachFromPanelEvent e) => OnCloseTab(serializedObject));
+                    root.RegisterCallback((DetachFromPanelEvent e) =>
+                    {
+                        if (serializedObject != null)
+                        {
+                            serializedObject.ApplyModifiedPropertiesWithoutUndo();
+                            PluginDatabase.ProjectSettings.SaveFile();
+
+                            if (editor.dirty)
+                                PluginDatabase.OnProjectSettingsSaved?.Invoke();
+                        }
+                    });
                 },
                 keywords = editor.GetSearchKeywords()
             };
-        }
-
-        private static void OnCloseTab(SerializedObject serializedObject)
-        {
-            if (serializedObject != null)
-            {
-                serializedObject.ApplyModifiedPropertiesWithoutUndo();
-                PluginDatabase.ProjectSettings.SaveFile();
-            }
         }
     }
 }

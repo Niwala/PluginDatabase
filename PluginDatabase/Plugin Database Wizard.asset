@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61cd11847119fc4ba88730cdd5ff28a, type: 3}
   m_Name: Plugin Database Wizard
   m_EditorClassIdentifier: Assembly-CSharp::PluginDatabaseWizard
-  pluginName: Test
-  namespaceName: MyStudio.MyPlugin.Database
-  exportDirectory: Assets/Settings
+  pluginName: MyTool
+  namespaceName: MyStudio.MyTool.Database
+  exportDirectory: Assets/MyTool/Database
+  keepWizard: 1
   projectSettings: 2
   projectSettingsInBuild: 2
   userSettings: 2
