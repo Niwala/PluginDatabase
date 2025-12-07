@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61cd11847119fc4ba88730cdd5ff28a, type: 3}
+  m_Name: Plugin Database Wizard
+  m_EditorClassIdentifier: Assembly-CSharp::PluginDatabaseWizard
+  pluginName: Test
+  namespaceName: MyStudio.MyPlugin.Database
+  exportDirectory: Assets/Settings
+  projectSettings: 2
+  projectSettingsInBuild: 2
+  userSettings: 2
+  document: {fileID: 9197481963319205126, guid: 6a3ee3d002158c447871b8d38da269e1, type: 3}
+  rootDirectory: {fileID: 102900000, guid: 863492f4506e652498691b0aaf77d6e9, type: 3}
+  editorDirectory: {fileID: 102900000, guid: 92e4fe3a11d256f4eaaa683babb6095b, type: 3}
+  runtimeDirectory: {fileID: 102900000, guid: 7da450e906f6ce249afd007a5a968a10, type: 3}

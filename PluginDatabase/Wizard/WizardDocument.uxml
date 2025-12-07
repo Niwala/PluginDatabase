@@ -1,0 +1,33 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/PluginDatabase/Wizard/WizardStyles.uss?fileID=7433441132597879392&amp;guid=67cd1fb68ddf1d94683cc0a3cb19ff61&amp;type=3#WizardStyles"/>
+    <ui:Label text="Plugin database wizard" name="title" class="title"/>
+    <ui:VisualElement name="content" style="flex-grow: 1; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;">
+        <ui:Label text="Once the wizard is complete, the scripts will be customized according to your preferences and the wizard will be deleted." name="general-info" class="info-box"/>
+        <ui:TextField label="Plugin Name" placeholder-text="MyPlugin" hide-placeholder-on-focus="false" name="plugin-name" binding-path="pluginName" tooltip="The name of your plugin. Please follow the same rules as when creating a C# class name."/>
+        <ui:TextField label="Scripts Namespace" placeholder-text="Studio.MyPlugin.Database" name="namespace" binding-path="namespaceName" tooltip="The namespace in which all generated scripts will be located. Example: Company.PluginName.Database"/>
+        <PathField export-directory="exportDirectory" binding-path="exportDirectory" label="Export Directory" tooltip="Where the files will be created. An Editor and Runtime folder will be created there if they do not already exist."/>
+        <ui:Toggle label="Keep Wizard" binding-path="keepWizard" tooltip="If this checkbox is checked, the wizard will not be deleted after its application." name="keep-wizard"/>
+        <ui:Label text="Plugin Resources" name="plugin-resources" class="subtitle"/>
+        <ui:VisualElement name="resources-access" style="flex-grow: 0; flex-direction: row; flex-shrink: 0; margin-right: 3px; margin-left: 3px; margin-bottom: 1px; margin-top: 1px;">
+            <ui:Label text="Accessible via:" class="unity-base-field__label" style="-unity-text-align: middle-left;"/>
+            <ui:Label text="PluginDatabase.Resources" name="resources-path" class="path-label"/>
+        </ui:VisualElement>
+        <ui:Label text="Saved as a simple scriptableObject in your assets.&lt;br&gt;&lt;br&gt;&lt;b&gt;- Can be moved&lt;br&gt;- Editor &amp; Runtime&lt;br&gt;- Shared&lt;br&gt;- Will be included in build" enable-rich-text="true" name="info" class="info-box"/>
+        <ui:Label text="Project Settings" name="project-settings" class="subtitle"/>
+        <ui:VisualElement name="access-access" style="flex-grow: 0; flex-direction: row; flex-shrink: 0; margin-right: 3px; margin-left: 3px; margin-top: 1px; margin-bottom: 1px;">
+            <ui:Label text="Accessible via:" class="unity-base-field__label" style="-unity-text-align: middle-left;"/>
+            <ui:Label text="PluginDatabase.ProjectSettings" name="project-path" class="path-label"/>
+        </ui:VisualElement>
+        <ui:EnumField label="Integration" value="ScriptsAndTab" type="PluginDatabaseWizard+ProjectSettings, Assembly-CSharp" name="project-integration" binding-path="projectSettings"/>
+        <ui:EnumField label="Access in build" value="Full" type="PluginDatabaseWizard+ProjectSettingsInBuild, Assembly-CSharp" name="project-build-access" binding-path="projectSettingsInBuild"/>
+        <ui:Label text="Saved as text in Project &gt; ProjectSettings.&lt;br&gt;&lt;br&gt;If AccessInBuild is marked as partial, only variables with the &lt;i&gt;[IncludeInBuild]&lt;/i&gt; attribute will be kept in the build.&lt;br&gt;&lt;br&gt;   &lt;b&gt;- Editor &amp; Runtime&lt;/b&gt;&lt;br&gt; &lt;b&gt;- Shared&lt;/b&gt;&lt;br&gt; &lt;b&gt;- Can be included in build&lt;/b&gt;" enable-rich-text="true" name="info" parse-escape-sequences="true" class="info-box" style="white-space: normal;"/>
+        <ui:Label text="User Settings" name="user-settings" class="subtitle"/>
+        <ui:VisualElement name="user-access" style="flex-grow: 0; flex-direction: row; flex-shrink: 0; margin-right: 3px; margin-left: 3px; margin-top: 1px; margin-bottom: 1px;">
+            <ui:Label text="Accessible via:" class="unity-base-field__label" style="-unity-text-align: middle-left;"/>
+            <ui:Label text="PluginDatabase.UserSettings" name="user-path" class="path-label"/>
+        </ui:VisualElement>
+        <ui:EnumField label="Integration" value="ScriptsAndTab" type="PluginDatabaseWizard+UserSettings, Assembly-CSharp" name="user-integration" binding-path="userSettings"/>
+        <ui:Label text="Saved as text in Project &gt; UserSettings.&lt;br&gt;&lt;br&gt;&lt;b&gt;- Editor Only&lt;/b&gt;&lt;br&gt;&lt;b&gt;- Not Shared&lt;/b&gt;&lt;br&gt;&lt;b&gt;- Will not be included in build&lt;/b&gt;" enable-rich-text="true" name="info" class="info-box"/>
+        <ui:Button text="Apply" name="apply-btn" style="margin-top: 10px; height: 30px; -unity-font-style: normal; font-size: 14px; margin-right: 0; margin-left: 0;"/>
+    </ui:VisualElement>
+</ui:UXML>
