@@ -304,9 +304,9 @@ namespace PluginDatabaseNamespace
                 string newPath = exportDir + relativePath;
 
                 string fileContent = File.ReadAllText(file);
+                fileContent = fileContent.Replace("PluginDatabaseNamespace", wizard.namespaceName);
                 fileContent = fileContent.Replace("plugin", minName);
                 fileContent = fileContent.Replace("Plugin", majName);
-                fileContent = fileContent.Replace("PluginDatabaseNamespace", wizard.namespaceName);
 
                 //Project settings integration
                 switch (wizard.projectSettings)
