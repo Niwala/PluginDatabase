@@ -4,6 +4,13 @@ PluginDatabase is a small utility designed to quickly generate Resources, UserSe
 PluginResources resources = PluginDatabase.Resources;
 PluginProjectSettings projectSettings = PluginDatabase.ProjectSettings;
 PluginUserSettings userSettings = PluginDatabase.UserSettings;
+
+//Editor only events (called from UI)
+PluginDatabase.OnProjectSettingsChanged += () => Debug.Log("Project settings changed");   
+PluginDatabase.OnProjectSettingsSaved += () => Debug.Log("Project settings saved");   
+PluginDatabase.OnUserSettingsChanged += () => Debug.Log("User settings changed");   
+PluginDatabase.OnUserSettingsSaved += () => Debug.Log("User settings saved");   
+PluginDatabase.OnResourcesChanged += () => Debug.Log("Ressources settings changed");   
 ```
 
 ## Installation
