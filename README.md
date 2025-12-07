@@ -21,6 +21,8 @@ PluginDatabase.OnResourcesChanged += () => Debug.Log("Ressources settings change
 **Important:** The PluginDatabase folder will delete itself automatically. Do not place any of your own files inside it.
 You can run the wizard multiple times in the same project. As long as you specify a different plugin name and/or namespace, you won't encounter conflicts.
 
+![Wizard](https://github.com/Niwala/PluginDatabase/blob/104d692d0f5bd346692f6149e21cb8922b4be434/Media/Wizard.png)
+
 ## Usage
 *In the examples below, replace "Plugin" with the plugin name you defined in the wizard.*
 
@@ -56,6 +58,8 @@ Edit → Preferences…, and can be accessed easily from any C# script.
 - To edit the inspector UI, modify Editor/Editors/PluginUserSettingsEditor.cs.
 - To retrieve the instance in C#, use PluginDatabase.UserSettings.
 - UserSettings are never available in builds.
+
+![Assets](https://github.com/Niwala/PluginDatabase/blob/104d692d0f5bd346692f6149e21cb8922b4be434/Media/Assets.png)
 
 #### Note
 All instances are accessible through the runtime API to simplify integration and testing.
