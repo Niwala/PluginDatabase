@@ -244,7 +244,7 @@ namespace PluginDatabaseNamespace
             conflictFiles = "The operation cannot be performed because some files already exist at the target location.\n";
             bool hasConflict = false;
 
-            string root = AssetDatabase.GetAssetPath(wizard.rootDirectory);
+            string root = Path.GetDirectoryName(AssetDatabase.GetAssetPath(wizard.editorDirectory));
 
             List<string> files = new List<string>();
             files.AddRange(Directory.GetFiles(AssetDatabase.GetAssetPath(wizard.editorDirectory), "*", SearchOption.AllDirectories));
@@ -279,7 +279,7 @@ namespace PluginDatabaseNamespace
             if (!Directory.Exists(wizard.exportDirectory))
                 Directory.CreateDirectory(wizard.exportDirectory);
 
-            string root = AssetDatabase.GetAssetPath(wizard.rootDirectory);
+            string root = Path.GetDirectoryName(AssetDatabase.GetAssetPath(wizard.editorDirectory));
 
             List<string> files = new List<string>();
             files.AddRange(Directory.GetFiles(AssetDatabase.GetAssetPath(wizard.editorDirectory), "*", SearchOption.AllDirectories));
@@ -397,7 +397,7 @@ namespace PluginDatabaseNamespace
 
         private void DeleteWizard()
         {
-            string root = AssetDatabase.GetAssetPath(wizard.rootDirectory);
+            string root = Path.GetDirectoryName(AssetDatabase.GetAssetPath(wizard.editorDirectory));
             string rootMeta = root + ".meta";
             Directory.Delete(root, true);
             File.Delete(rootMeta);

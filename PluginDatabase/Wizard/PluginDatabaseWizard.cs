@@ -58,7 +58,6 @@ public class PluginDatabaseWizard : ScriptableObject
         Full,
     }
 
-    public Object rootDirectory;
     public Object editorDirectory;
     public Object runtimeDirectory;
 }
